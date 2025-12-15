@@ -53,13 +53,13 @@
             <h1 class="title is-1 publication-title">VideoMemory: Toward Consistent Video Generation via Memory Integration</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="#" target="_blank">Jinsong Zhou</a><sup>1*</sup>,
+                <a href="https://jinsong-zhou.github.io" target="_blank">Jinsong Zhou</a><sup>1*</sup>,
               </span>
               <span class="author-block">
                 <a href="https://hit-perfect.github.io" target="_blank">Yihua Du</a><sup>1*</sup>,
               </span>
               <span class="author-block">
-                <a href="#" target="_blank">Xinli Xu</a><sup>1*†</sup>,
+                <a href="https://scholar.google.com.sg/citations?user=lrgPuBUAAAAJ&hl=zh-CN" target="_blank">Xinli Xu</a><sup>1*†</sup>,
               </span>
               <span class="author-block">
                 <a href="https://wileewang.github.io" target="_blank">Luozhou Wang</a><sup>1</sup>,
@@ -125,7 +125,7 @@
         <img src="Figs/Teaser.png" class="figure-img" alt="Teaser" style="margin-bottom: 10px;">
         <div class="content has-text-justified is-size-6 has-text-grey" style="max-width: 90%; margin: 0 auto 30px auto;">
           <p>
-            From a single story prompt, <strong>VideoMemory</strong> generates coherent multi-shot videos using dynamic Character, Prop, and Background Memory Banks. This ensures exceptional entity consistency, as seen with the <strong>feather</strong> prop remaining perfectly stable across distant shots (e.g., 2, 10, and 12) despite significant scene and viewpoint variations.
+            From a single story prompt, <strong>VideoMemory</strong> generates coherent multi-shot videos using <strong>dynamic Character, Prop, and Background Memory Banks</strong>. This ensures exceptional entity consistency, as seen with the <strong>feather</strong> prop remaining perfectly stable across distant shots (e.g., 2, 10, and 12) despite significant scene and viewpoint variations.
           </p>
         </div>
         
@@ -185,7 +185,7 @@
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-3 has-text-centered">Method & Pipeline</h2>
+      <h2 class="title is-3 has-text-centered">Method & Pipeline</h2>
 
         <img src="Figs/Pipeline.png" width="100%" alt="VideoMemory Pipeline" style="margin-bottom: 2rem;">
         
@@ -219,6 +219,30 @@
                 <p><strong>10:</strong> <strong>end for</strong></p>
                 <p><strong>11:</strong> <em>V̂</em> ← {<em>V̂<sub>i</sub></em>}<sub><em>i</em>=1</sub><sup><em>N</em></sup></p>
               </div>
+
+              <!-- Notation -->
+              <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #dbdbdb; font-family: 'Noto Sans', sans-serif;">
+                <p style="font-weight: bold; margin-bottom: 1rem; font-size: 0.95rem;">Notation:</p>
+                <div style="font-size: 0.87rem; line-height: 2;">
+                  <p style="margin-bottom: 0.8rem;">
+                    <em>S</em>: script synopsis; &nbsp;&nbsp;
+                    <em>N</em>: number of shots; &nbsp;&nbsp;
+                    <em>V̂</em>: generated multi-shot video; &nbsp;&nbsp;
+                    <em>V̂<sub>i</sub></em>: video for shot <em>i</em>; &nbsp;&nbsp;
+                    <em>C<sub>i</sub></em>: caption for shot <em>i</em>
+                  </p>
+                  <p style="margin-bottom: 0.8rem;">
+                    <em>M</em><sup>char</sup>, <em>M</em><sup>prop</sup>, <em>M</em><sup>bg</sup>: memory banks for characters, props, backgrounds; &nbsp;&nbsp;
+                    <em>e<sub>ij</sub></em>: name of entity <em>j</em> in shot <em>i</em>; &nbsp;&nbsp;
+                    <em>a<sub>ij</sub></em>: attributes of entity <em>j</em> in shot <em>i</em>
+                  </p>
+                  <p style="margin-bottom: 0;">
+                    <em>c<sub>ij</sub></em>: category of entity <em>j</em> (character/prop/background); &nbsp;&nbsp;
+                    <em>I<sub>ij</sub></em><sup>ref</sup>: reference image for entity <em>j</em> in shot <em>i</em>; &nbsp;&nbsp;
+                    <em>I<sub>i</sub></em><sup>key</sup>: keyframe for shot <em>i</em>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -230,8 +254,8 @@
   <section class="section hero is-light">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-        
+      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+      
         <img src="Figs/qualitative_results.png" width="100%" alt="Qualitative Results" style="margin-bottom: 2rem;">
         
         <div class="content has-text-justified">
@@ -248,8 +272,8 @@
           <p>
             <strong>Multi-shot consistency results.</strong>
             We evaluate character, prop, and background consistency using DINOv2 similarity. Our method achieves superior performance across all metrics, especially as the number of shots increases. Best and second-best scores are marked in <strong>bold</strong> and <u>underlined</u>, respectively.
-          </p>
-        </div>
+            </p>
+          </div>
 
         <div style="overflow-x: auto;">
           <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: 0 auto; font-size: 0.85rem; width: 100%;">
@@ -407,12 +431,12 @@
             <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
               <source src="ShowCase_videos/demo_com 5.mp4" type="video/mp4">
             </video>
-          </div>
+      </div>
           <div style="margin-bottom: 2rem;">
             <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
               <source src="ShowCase_videos/demo_com 6.mp4" type="video/mp4">
             </video>
-          </div>
+    </div>
           <div style="margin-bottom: 2rem;">
             <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
               <source src="ShowCase_videos/demo_com 7.mp4" type="video/mp4">
