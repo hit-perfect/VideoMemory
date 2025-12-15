@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VideoMemory: Toward Consistent Video Generation via Memory Integration</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="video-eye2eye.github.io/static/css/bulma.min.css">
+  <link rel="stylesheet" href="video-eye2eye.github.io/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="video-eye2eye.github.io/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="video-eye2eye.github.io/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="video-eye2eye.github.io/static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="video-eye2eye.github.io/static/js/fontawesome.all.min.js"></script>
+  <script src="video-eye2eye.github.io/static/js/bulma-carousel.min.js"></script>
+  <script src="video-eye2eye.github.io/static/js/bulma-slider.min.js"></script>
+  <script src="video-eye2eye.github.io/static/js/index.js"></script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+    .publication-title, .publication-authors, .teaser {
+      font-family: 'Google Sans', sans-serif;
+    }
+    .publication-authors a {
+      color: hsl(204, 86%, 53%) !important;
+    }
+    .teaser-video {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .figure-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">VideoMemory: Toward Consistent Video Generation via Memory Integration</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#" target="_blank">Jinsong Zhou</a><sup>1*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://hit-perfect.github.io" target="_blank">Yihua Du</a><sup>1*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Xinli Xu</a><sup>1*†</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://wileewang.github.io" target="_blank">Luozhou Wang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Zijie Zhuang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Yehang Zhang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Shuaibo Li</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Xiaojun Hu</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Bolan Su</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.yingcong.me" target="_blank">Ying-cong Chen</a><sup>1,2‡</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>HKUST(GZ)</span> &nbsp;
+              <span class="author-block"><sup>2</sup>HKUST</span> &nbsp;
+              <span class="author-block"><sup>3</sup>ByteDance</span>
+            </div>
+            
+            <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup>*</sup>Equal contribution &nbsp; <sup>†</sup>Project leader &nbsp; <sup>‡</sup>Corresponding author</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- ArXiv Link -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="Figs/Teaser.png" class="figure-img" alt="Teaser" style="margin-bottom: 10px;">
+        <div class="content has-text-justified is-size-6 has-text-grey" style="max-width: 90%; margin: 0 auto 30px auto;">
+          <p>
+            From a single story prompt, <strong>VideoMemory</strong> generates coherent multi-shot videos using dynamic Character, Prop, and Background Memory Banks. This ensures exceptional entity consistency, as seen with the <strong>feather</strong> prop remaining perfectly stable across distant shots (e.g., 2, 10, and 12) despite significant scene and viewpoint variations.
+          </p>
+        </div>
+        
+        <p class="is-size-5 has-text-weight-medium has-text-centered">
+          <span class="icon is-small" style="vertical-align: middle; margin-right: 4px;">
+            <i class="fas fa-volume-up"></i>
+          </span>
+          Please enable sound for the best experience
+        </p>
+        <video class="teaser-video" autoplay controls muted loop playsinline style="margin-bottom: 10px;">
+          <source src="Video_intro/demo_com.mp4" type="video/mp4">
+        </video>
+        <div class="content has-text-justified is-size-6 has-text-grey" style="max-width: 90%; margin: 0 auto;">
+          <p>
+            The first half of this video illustrates the working mechanism of VideoMemory, while the second half showcases a complete case result.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Maintaining consistent characters, props, and environments across multiple shots is a central challenge in narrative video generation. Existing models can produce high-quality short clips but often fail to preserve entity identity and appearance when scenes change or when entities reappear after long temporal gaps. We present VideoMemory, an entity-centric framework that integrates narrative planning with visual generation through a Dynamic Memory Bank. Given a structured script, a multi-agent system decomposes the narrative into shots, retrieves entity representations from memory, and synthesizes keyframes and videos conditioned on these retrieved states. The Dynamic Memory Bank stores explicit visual and semantic descriptors for characters, props, and backgrounds, and is updated after each shot to reflect story-driven changes while preserving identity. This retrieval–update mechanism enables consistent portrayal of entities across distant shots and supports coherent long-form generation. To evaluate this setting, we construct a 54-case multi-shot consistency benchmark covering character-, prop-, and background-persistent scenarios. Extensive experiments show that VideoMemory achieves strong entity-level coherence and high perceptual quality across diverse narrative sequences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contributions -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Contributions</h2>
+          <div class="content has-text-justified">
+            <ul>
+              <li>We introduce <em>VideoMemory</em>, an entity-centric framework for script-to-multi-shot video generation built around a Dynamic Memory Bank that explicitly tracks and updates the visual and semantic states of narrative entities.</li>
+              <li>We develop a retrieval–and-update memory mechanism with dedicated slots for characters, props, and environments, enabling long-range entity consistency while allowing story-guided changes in their visual state.</li>
+              <li>We construct a multi-shot consistency benchmark with 54 story-driven cases covering character-, prop-, and background-persistent scenarios, providing the first structured evaluation protocol for long-range entity coherence in narrative videos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Method & Pipeline</h2>
+
+        <img src="Figs/Pipeline.png" width="100%" alt="VideoMemory Pipeline" style="margin-bottom: 2rem;">
+        
+        <div class="content has-text-justified">
+          <p>
+            <strong>The framework of the proposed <em>VideoMemory</em>.</strong>
+            Starting from a script synopsis, our system plans shot-level descriptions, interacts with a Dynamic Memory Bank to retrieve or create entity references, generates keyframes, and finally synthesizes a coherent multi-shot video.
+          </p>
+        </div>
+
+        <!-- Algorithm -->
+        <div style="margin-top: 3rem;">
+          <div class="box" style="background-color: #fafafa; border: 1px solid #dbdbdb; max-width: 85%; margin: 0 auto;">
+            <h4 class="title is-5 has-text-centered" style="margin-bottom: 20px;">
+              <strong>Algorithm: VideoMemory - Procedure from Script Synopsis to Multi-Shot Video</strong>
+            </h4>
+            <div class="content" style="font-family: 'Courier New', monospace; font-size: 0.9rem;">
+              <p><strong>Input:</strong> Script synopsis <em>S</em></p>
+              <p><strong>Output:</strong> Multi-shot video <span style="white-space: nowrap;"><em>V̂</em> = {<em>V̂<sub>i</sub></em>}<sub><em>i</em>=1</sub><sup><em>N</em></sup></span></p>
+              
+              <div style="margin-left: 0; margin-top: 15px;">
+                <p><strong>1:</strong> {<em>C<sub>i</sub></em>}<sub><em>i</em>=1</sub><sup><em>N</em></sup> ← <span style="font-variant: small-caps;">StoryboardAgent</span>(<em>S</em>)</p>
+                <p><strong>2:</strong> Initialize memory banks <em>M</em><sup>char</sup>, <em>M</em><sup>prop</sup>, <em>M</em><sup>bg</sup> ← ∅</p>
+                <p><strong>3:</strong> <strong>for</strong> shot <em>i</em> = 1 to <em>N</em> <strong>do</strong> &nbsp;&nbsp;<span style="color: #666;">▷ Process shots sequentially</span></p>
+                <p style="margin-left: 2em;"><strong>4:</strong> &nbsp;&nbsp;{(<em>e<sub>ij</sub></em>, <em>a<sub>ij</sub></em>, <em>c<sub>ij</sub></em>)}<sub><em>j</em></sub> ← <span style="font-variant: small-caps;">MemoryAgentAnalyze</span>(<em>C<sub>i</sub></em>)</p>
+                <p style="margin-left: 2em;"><strong>5:</strong> &nbsp;&nbsp;<strong>for</strong> each (<em>e<sub>ij</sub></em>, <em>a<sub>ij</sub></em>, <em>c<sub>ij</sub></em>) <strong>do</strong></p>
+                <p style="margin-left: 4em;"><strong>6:</strong> &nbsp;&nbsp;&nbsp;&nbsp;(<em>I<sub>ij</sub></em><sup>ref</sup>, <em>M</em>) ← <span style="font-variant: small-caps;">RetrieveOrGenerate</span>(<em>e<sub>ij</sub></em>, <em>a<sub>ij</sub></em>, <em>c<sub>ij</sub></em>, <em>M</em>)</p>
+                <p style="margin-left: 2em;"><strong>7:</strong> &nbsp;&nbsp;<strong>end for</strong></p>
+                <p style="margin-left: 2em;"><strong>8:</strong> &nbsp;&nbsp;<em>I<sub>i</sub></em><sup>key</sup> ← <span style="font-variant: small-caps;">VisualizationAgentKeyframe</span>(<em>C<sub>i</sub></em>, {<em>I<sub>ij</sub></em><sup>ref</sup>}<sub><em>j</em></sub>)</p>
+                <p style="margin-left: 2em;"><strong>9:</strong> &nbsp;&nbsp;<em>V̂<sub>i</sub></em> ← <span style="font-variant: small-caps;">I2VModel</span>(<em>I<sub>i</sub></em><sup>key</sup>, <em>C<sub>i</sub></em>)</p>
+                <p><strong>10:</strong> <strong>end for</strong></p>
+                <p><strong>11:</strong> <em>V̂</em> ← {<em>V̂<sub>i</sub></em>}<sub><em>i</em>=1</sub><sup><em>N</em></sup></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualitative Results -->
+  <section class="section hero is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+        
+        <img src="Figs/qualitative_results.png" width="100%" alt="Qualitative Results" style="margin-bottom: 2rem;">
+        
+        <div class="content has-text-justified">
+          <p>
+            <strong>Qualitative comparison demonstrating superior entity consistency.</strong> 
+            Across all three subclasses (Character, Prop, Background), <em>VideoMemory</em> (bottom row) maintains remarkable stability where baselines fail. Note how baselines exhibit severe <strong>identity drift</strong>—changing a character's appearance (left), morphing a red kite into other objects (middle), and altering a garage's layout (right). In contrast, our method preserves the identity of all entities across distant shots, a direct result of our explicit memory management.
+          </p>
+        </div>
+
+        <!-- Quantitative Results -->
+        <h2 class="title is-3 has-text-centered" style="margin-top: 3rem;">Quantitative Results</h2>
+        
+        <div class="content has-text-justified" style="margin-bottom: 1.5rem;">
+          <p>
+            <strong>Multi-shot consistency results.</strong>
+            We evaluate character, prop, and background consistency using DINOv2 similarity. Our method achieves superior performance across all metrics, especially as the number of shots increases. Best and second-best scores are marked in <strong>bold</strong> and <u>underlined</u>, respectively.
+          </p>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: 0 auto; font-size: 0.85rem; width: 100%;">
+            <thead>
+              <tr>
+                <th rowspan="2" style="vertical-align: middle; text-align: center;">Shot Number</th>
+                <th colspan="4" style="text-align: center; border-bottom: 1px solid #dbdbdb;">Character Consistency↑</th>
+                <th colspan="4" style="text-align: center; border-bottom: 1px solid #dbdbdb;">Prop Consistency↑</th>
+                <th colspan="4" style="text-align: center; border-bottom: 1px solid #dbdbdb;">Background Consistency↑</th>
+              </tr>
+              <tr>
+                <th style="text-align: center;">4</th>
+                <th style="text-align: center;">8</th>
+                <th style="text-align: center;">12</th>
+                <th style="text-align: center;">Avg.</th>
+                <th style="text-align: center;">4</th>
+                <th style="text-align: center;">8</th>
+                <th style="text-align: center;">12</th>
+                <th style="text-align: center;">Avg.</th>
+                <th style="text-align: center;">4</th>
+                <th style="text-align: center;">8</th>
+                <th style="text-align: center;">12</th>
+                <th style="text-align: center;">Avg.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Wan2.2</td>
+                <td style="text-align: center;">0.34</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">0.48</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">0.25</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+              </tr>
+              <tr>
+                <td>EchoShot</td>
+                <td style="text-align: center;">0.45</td>
+                <td style="text-align: center;">0.44</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">0.59</td>
+                <td style="text-align: center;"><strong>0.51</strong></td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">0.54</td>
+                <td style="text-align: center;">0.37</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;">-</td>
+              </tr>
+              <tr>
+                <td>IC-LoRA+Wan2.2</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0.55</td>
+                <td style="text-align: center;">0.43</td>
+                <td style="text-align: center;">0.47</td>
+                <td style="text-align: center;">0.50</td>
+                <td style="text-align: center;">0.44</td>
+                <td style="text-align: center;">0.34</td>
+                <td style="text-align: center;">0.43</td>
+                <td style="text-align: center;">0.31</td>
+                <td style="text-align: center;">0.33</td>
+                <td style="text-align: center;">0.29</td>
+                <td style="text-align: center;">0.31</td>
+              </tr>
+              <tr>
+                <td>StoryDiffusion+Wan2.2</td>
+                <td style="text-align: center;">0.53</td>
+                <td style="text-align: center;">0.62</td>
+                <td style="text-align: center;">0.46</td>
+                <td style="text-align: center;">0.54</td>
+                <td style="text-align: center;">0.43</td>
+                <td style="text-align: center;">0.47</td>
+                <td style="text-align: center;"><u>0.52</u></td>
+                <td style="text-align: center;">0.47</td>
+                <td style="text-align: center;">0.51</td>
+                <td style="text-align: center;">0.40</td>
+                <td style="text-align: center;">0.36</td>
+                <td style="text-align: center;">0.42</td>
+              </tr>
+              <tr>
+                <td>VGoT+Wan2.2</td>
+                <td style="text-align: center;"><u>0.59</u></td>
+                <td style="text-align: center;">0.53</td>
+                <td style="text-align: center;"><u>0.60</u></td>
+                <td style="text-align: center;"><u>0.57</u></td>
+                <td style="text-align: center;"><u>0.48</u></td>
+                <td style="text-align: center;">0.22</td>
+                <td style="text-align: center;">0.24</td>
+                <td style="text-align: center;">0.31</td>
+                <td style="text-align: center;"><u>0.53</u></td>
+                <td style="text-align: center;"><u>0.36</u></td>
+                <td style="text-align: center;"><u>0.47</u></td>
+                <td style="text-align: center;"><u>0.45</u></td>
+              </tr>
+              <tr style="border-top: 2px solid #363636;">
+                <td><strong>VideoMemory (Ours)</strong></td>
+                <td style="text-align: center;"><strong>0.61</strong></td>
+                <td style="text-align: center;"><strong>0.65</strong></td>
+                <td style="text-align: center;"><strong>0.64</strong></td>
+                <td style="text-align: center;"><strong>0.63</strong></td>
+                <td style="text-align: center;"><strong>0.69</strong></td>
+                <td style="text-align: center;"><u>0.50</u></td>
+                <td style="text-align: center;"><strong>0.55</strong></td>
+                <td style="text-align: center;"><strong>0.58</strong></td>
+                <td style="text-align: center;"><strong>0.71</strong></td>
+                <td style="text-align: center;"><strong>0.72</strong></td>
+                <td style="text-align: center;"><strong>0.73</strong></td>
+                <td style="text-align: center;"><strong>0.72</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Results -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Video Showcase</h2>
+      <p class="subtitle is-6 has-text-centered">
+        Multi-shot video generation results demonstrating consistent entity preservation across diverse narratives.
+      </p>
+      
+      <div id="video-results-container">
+        <div style="max-width: 90%; margin: 0 auto;">
+          <div style="margin-bottom: 2rem;">
+            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+              <source src="ShowCase_videos/demo_com.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+              <source src="ShowCase_videos/demo_com 2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+              <source src="ShowCase_videos/demo_com 3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+              <source src="ShowCase_videos/demo_com 4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+              <source src="ShowCase_videos/demo_com 5.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+              <source src="ShowCase_videos/demo_com 6.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+              <source src="ShowCase_videos/demo_com 7.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{zhou2025videomemory,
+  title={VideoMemory: Toward Consistent Video Generation via Memory Integration},
+  author={Zhou, Jinsong and Du, Yihua and Xu, Xinli and Wang, Luozhou and Zhuang, Zijie and Zhang, Yehang and Li, Shuaibo and Hu, Xiaojun and Su, Bolan and Chen, Ying-cong},
+  journal={arXiv preprint},
+  year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>VideoMemory</strong> · 2025
+        </p>
+        <p>
+          We thank <a href="https://video-eye2eye.github.io/" target="_blank">Eye2Eye</a> for their project page template and <a href="https://github.com/hit-perfect/StereoPilot" target="_blank">StereoPilot</a> for inspiration.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
