@@ -105,7 +105,7 @@
                 </span>
                 <!-- Code Link -->
                 <span class="link-block">
-                  <a href="https://github.com/Jinsong-Zhou/VideoMemory" class="external-link button is-normal is-rounded is-dark">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
@@ -478,7 +478,7 @@
   </section>
 
   <!-- Video Results -->
-  <!-- <section class="section">
+  <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Video Showcase</h2>
       <p class="subtitle is-6 has-text-centered">
@@ -492,33 +492,284 @@
       </p>
       
       <div id="video-results-container">
-        <div style="max-width: 90%; margin: 0 auto;">
-          <div style="margin-bottom: 2rem;">
-            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+        <style>
+          .video-item {
+            margin-bottom: 3rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          
+          .video-wrapper {
+            position: relative;
+            margin-bottom: 0.8rem;
+          }
+          
+          .video-wrapper video {
+            width: 100%;
+            border-radius: 8px;
+          }
+          
+          .script-toggle-container {
+            text-align: center;
+            margin-top: 0.8rem;
+          }
+          
+          .script-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: transparent;
+            color: #363636;
+            border: 1px solid #dbdbdb;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            font-family: 'Noto Sans', sans-serif;
+          }
+          
+          .script-toggle-btn:hover {
+            border-color: #b5b5b5;
+            color: #000;
+          }
+          
+          .script-panel {
+            display: none;
+            background: #fafafa;
+            border: 1px solid #e8e8e8;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+          }
+          
+          .script-panel.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+          }
+          
+          @keyframes slideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          .script-panel h4 {
+            color: #363636;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Google Sans', sans-serif;
+          }
+          
+          .script-content {
+            color: #4a4a4a;
+            line-height: 1.7;
+            font-size: 0.9rem;
+          }
+          
+          .script-content p {
+            margin-bottom: 0.8rem;
+          }
+          
+          .script-content strong {
+            color: #363636;
+            font-weight: 600;
+            display: block;
+            margin-top: 0.8rem;
+            margin-bottom: 0.3rem;
+          }
+        </style>
+        
+        <!-- Case 1 -->
+        <div class="video-item">
+          <div class="video-wrapper">
+            <video width="100%" autoplay controls muted loop playsinline>
               <source src="ShowCase_videos/Case1.mp4" type="video/mp4">
             </video>
           </div>
-          <div style="margin-bottom: 2rem;">
-            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+          <div class="script-toggle-container">
+            <button class="script-toggle-btn" onclick="toggleScript(1)">
+              <span>📄</span>
+              <span>View Full Script</span>
+            </button>
+          </div>
+          <div class="script-panel" id="script-1">
+            <h4>Case 1 - THE EDGE OF FOCUS</h4>
+            <div class="script-content">
+              <strong>Shot 1:</strong>
+              <p>Inside a traditional dojo in late afternoon light, dust motes drift through golden beams cutting across dark wood. A well-worn BAMBOO SHINAI is gripped so tightly the leather creases; knuckles pale with effort. KENJI holds a low stance, unmoving, eyes burning behind the helmet grill.</p>
+              
+              <strong>Shot 2:</strong>
+              <p>Across the polished floor, RYU matches Kenji's posture with calm precision. He stands taller, expression contained behind his own grill, shinai angled with disciplined restraint. The space between them feels heavy, like the dojo itself is holding its breath, amplifying every tiny shift of weight and every quiet scrape of bamboo against callused hands.</p>
+              
+              <strong>Shot 3:</strong>
+              <p>Kenji's foot slides forward—small, deliberate, and final. The stillness breaks as he surges into motion, body turning into a streak of kinetic force. Ryu meets him without hesitation, timing perfect; their shinais collide and the impact blooms into a burst of blue energy that ripples through the air like a shockwave.</p>
+              
+              <strong>Shot 4:</strong>
+              <p>They trade strikes in a relentless rhythm—attack, parry, counter, evade—each movement sharper than the last. Kenji's focus tightens to a fierce edge, his eyes wide and fully locked in. Ryu pivots with controlled power, shinai carving bright arcs through the space; bamboo bites bamboo, and sparks flicker where the blades grind and slide past each other.</p>
+              
+              <strong>Shot 5:</strong>
+              <p>The duel compresses into raw strength as they press shinais together, both refusing to yield. The bamboo bows under pressure, fibers straining. Their faces hover inches apart behind the protective grills, breath harsh and ragged, teeth clenched, forearms trembling as the stalemate threatens to snap one of them open.</p>
+              
+              <strong>Shot 6:</strong>
+              <p>The dojo's walls dissolve away, replaced by a swirling void of brushstrokes and racing cherry-blossom petals. Color saturates into something unreal and emotional. Kenji and Ryu keep fighting as if the space itself is an extension of their concentration—movements so fast they seem to appear and vanish between strikes, the duel continuing without any ground, horizon, or limit.</p>
+              
+              <strong>Shot 7:</strong>
+              <p>Ryu launches upward into the open emptiness, framed against a massive stylized sun that dominates the painted sky. He drives a crushing overhead strike downward with absolute commitment. Kenji answers with a desperate horizontal block, arms braced, stance anchored by will alone. The collision detonates into a blinding white flash that swallows everything for a beat.</p>
+              
+              <strong>Shot 8:</strong>
+              <p>The dojo is there again, the late-afternoon light now darker and heavier. Ryu stands tall, breathing hard, shinai hanging loose at his side. Kenji kneels on the floor, winded but unbroken, using his shinai to steady himself. Ryu extends a hand; Kenji takes it, and Ryu pulls him up. They bow deeply in mutual respect, then walk toward the exit side-by-side, shinais resting on their shoulders against the fading sun.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Case 2 -->
+        <div class="video-item">
+          <div class="video-wrapper">
+            <video width="100%" autoplay controls muted loop playsinline>
               <source src="ShowCase_videos/Case2.mp4" type="video/mp4">
             </video>
           </div>
-          <div style="margin-bottom: 2rem;">
-            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+          <div class="script-toggle-container">
+            <button class="script-toggle-btn" onclick="toggleScript(2)">
+              <span>📄</span>
+              <span>View Full Script</span>
+            </button>
+          </div>
+          <div class="script-panel" id="script-2">
+            <h4>Case 2 - WINDLETTER</h4>
+            <div class="script-content">
+              <strong>Shot 1:</strong>
+              <p>On an afternoon hillside path, watercolor landscapes roll gently under warm earth tones. SORA (22) walks at an easy pace, her simple travel coat moving softly with the breeze. A paper WIND CHARM hangs from her backpack and flutters with lively, natural wind motion.</p>
+              
+              <strong>Shot 2:</strong>
+              <p>AKI (27) stands beside a fork in the path, worn satchel at his side, quietly attentive. He points to the split trail without urgency. The wind charm twists, hesitates, then leans toward the left path as if deciding for them. Sora notices the charm's choice and lets curiosity guide her steps, calm and unhurried.</p>
+              
+              <strong>Shot 3:</strong>
+              <p>They continue along the left trail together, footsteps soft on the ground. The charm keeps fluttering in small, consistent pulls, tugging in a steady direction. Aki watches it with a gentle expression, not questioning, simply following Sora's lead as the hillside air flows around them.</p>
+              
+              <strong>Shot 4:</strong>
+              <p>The path leads into a bamboo grove where light filters through tall green stalks in quiet bands. Sora and Aki walk carefully, matching pace; Aki places each step with care to avoid snapping any bamboo. The wind charm spins more quickly for a moment, then settles, responding to a breeze that slips through like a whisper.</p>
+              
+              <strong>Shot 5:</strong>
+              <p>Sora stops briefly and adjusts the charm's knot, fingers patient and practiced. The charm responds immediately, fluttering again with a pleased, buoyant rhythm. Aki stays close, giving her space, his calm presence reinforcing the grove's stillness and the sense that the charm understands something they don't need to name.</p>
+              
+              <strong>Shot 6:</strong>
+              <p>In a small tea shed late in the afternoon, steam curls upward in a warm, quiet room with no signage and no text. Sora sets her backpack down; the wind charm sways near a window, moving gently with indoor drafts. Aki warms his hands over a kettle, then slides a cup of tea toward Sora without speaking, as if the gesture is already part of the journey.</p>
+              
+              <strong>Shot 7:</strong>
+              <p>At sunset on a riverbank, the water turns gold under low light. A sudden breeze lifts the wind charm and angles it toward a narrow footbridge ahead. Sora and Aki cross slowly, their steps measured. Midway, Sora pauses, touches the charm lightly, and continues with a steadier confidence; Aki follows with a soft smile that feels like reassurance rather than celebration.</p>
+              
+              <strong>Shot 8:</strong>
+              <p>At dusk on the far end of the old footbridge, they stop together as the air cools. The charm finally rests, becoming still after so much guiding motion. Sora gently unhooks the wind charm and ties it to the bridge railing, leaving it behind with care. The paper flutters once like a polite goodbye, and Sora and Aki walk onward side-by-side into the quiet evening.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Case 3 -->
+        <div class="video-item">
+          <div class="video-wrapper">
+            <video width="100%" autoplay controls muted loop playsinline>
               <source src="ShowCase_videos/Case3.mp4" type="video/mp4">
             </video>
           </div>
-          <div style="margin-bottom: 2rem;">
-            <video width="100%" autoplay controls muted loop playsinline style="border-radius: 8px;">
+          <div class="script-toggle-container">
+            <button class="script-toggle-btn" onclick="toggleScript(3)">
+              <span>📄</span>
+              <span>View Full Script</span>
+            </button>
+          </div>
+          <div class="script-panel" id="script-3">
+            <h4>Case 3 - BUTTONS OF BRAVERY</h4>
+            <div class="script-content">
+              <strong>Shot 1:</strong>
+              <p>Inside a cozy tailor shop in daylight, the space feels soft and welcoming—rounded shapes, warm light, and rich fabric textures everywhere. A brightly stitched LUCKY PATCH rests on a spool box like a tiny treasure waiting to be chosen.</p>
+              
+              <strong>Shot 2:</strong>
+              <p>GRACE (25) lifts the patch with careful fingertips, treating it as if it might sneeze or wiggle away. OWEN (29) holds out his jacket with anxious hope, shoulders tense and eyes fixed on the patch. Grace places the patch against the jacket's chest; Owen freezes instantly, barely daring to breathe.</p>
+              
+              <strong>Shot 3:</strong>
+              <p>On a bright festival street, colorful banners sway above a cheerful crowd that keeps flowing in every direction. Owen moves through the bustle like he's protecting a priceless artifact, keeping the jacket close and constantly checking the LUCKY PATCH. Grace stays right behind him, arms out in a gentle "buffer," guiding him through gaps before anyone can bump into him.</p>
+              
+              <strong>Shot 4:</strong>
+              <p>A balloon cart suddenly swerves into their path. Owen dodges too hard and nearly stumbles, panic flashing across his face. Grace catches him by the elbow and steadies him before he can tumble. The patch flutters at the edge for a moment but stays on; Owen looks stunned, and Grace beams like this is exactly what she expected.</p>
+              
+              <strong>Shot 5:</strong>
+              <p>At the fountain plaza, water sparkles and throws reflections across the stone while laughter and festival ambience fill the air without any spoken words. Owen notices a reflected glint and his expression tightens—he realizes the patch's edge is lifting just slightly, enough to trigger his full-body alarm.</p>
+              
+              <strong>Shot 6:</strong>
+              <p>Grace calmly pulls a tiny needle kit from her pocket and signals Owen to stay perfectly still. Owen holds the jacket up as if it's sacred, eyes locked on her hands. Grace re-stitches the LUCKY PATCH with quick, confident motions, tightening the threads until it lies flat and secure again.</p>
+              
+              <strong>Shot 7:</strong>
+              <p>They duck into a quiet arcade corner where shade softens the festival's intensity. Owen tries out a "confident walk," exaggerated and cartoonish, as if bravery is something you can practice step-by-step. Grace mirrors his performance for a beat, then taps his shoulder lightly and corrects his posture. Owen pats the patch to confirm it's holding; both share a satisfied grin.</p>
+              
+              <strong>Shot 8:</strong>
+              <p>At sunset on the festival stage steps, Owen wears the jacket proudly, and the LUCKY PATCH catches the sun like a tiny medal. He climbs carefully but with steadier confidence than before. Grace watches from below, visibly proud. At the top, Owen turns and gives her a small, earnest bow; Grace returns a playful bow and slips the needle kit back into her pocket, content that the patch is safe.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Case 4 -->
+        <div class="video-item">
+          <div class="video-wrapper">
+            <video width="100%" autoplay controls muted loop playsinline>
               <source src="ShowCase_videos/Case4.mp4" type="video/mp4">
             </video>
           </div>
+          <div class="script-toggle-container">
+            <button class="script-toggle-btn" onclick="toggleScript(4)">
+              <span>📄</span>
+              <span>View Full Script</span>
+            </button>
+          </div>
+          <div class="script-panel" id="script-4">
+            <h4>Case 4 - CLAY HEARTS</h4>
+            <div class="script-content">
+              <strong>Shot 1:</strong>
+              <p>In a tiny clay kitchen in the morning, everything feels handcrafted—visible fingerprints on the counters, slightly uneven tiles, cozy warm light, and a gentle stop-motion jitter. A ceramic HEART TOKEN sits near a window and wobbles subtly on the uneven surface as wind lightly rattles the frame.</p>
+              
+              <strong>Shot 2:</strong>
+              <p>MIRA (26), wearing a bright scarf and looking quietly determined, wraps the heart token in a soft cloth with careful, practiced hands. The bundle is small but treated like something precious; she tucks corners in, then pauses to check if anything is exposed.</p>
+              
+              <strong>Shot 3:</strong>
+              <p>TOM (32), a gentle giant in a wool sweater, holds a small box labeled only by shape with no readable text. He keeps the box steady and close, offering it like a safe landing place. Both of them glance toward the window as the wind gives a sharper rattle, their faces showing the same silent concern.</p>
+              
+              <strong>Shot 4:</strong>
+              <p>On the front porch, leaves skitter across the ground like paper cutouts, pushed by playful gusts. Mira clutches the cloth-wrapped bundle close to her chest while Tom steps in front of her, using his body as a windbreak, shoulders squared to block the strongest air.</p>
+              
+              <strong>Shot 5:</strong>
+              <p>A sudden gust tugs at the cloth. The knot loosens and the fabric lifts at the edge, threatening to unwrap. Tom reacts with surprising delicacy, pinning the cloth with two fingers—gentle enough not to crush what's inside. Mira immediately tightens the knot again, her expression shifting into relieved gratitude.</p>
+              
+              <strong>Shot 6:</strong>
+              <p>On a hill path, they climb together while the bundle bounces comically with each step, as if the wind and gravity are teaming up to test them. Mira slips on a pebble; Tom steadies her by the elbow before she can fall. The bundle opens just enough to reveal the ceramic heart token gleaming for a brief moment.</p>
+              
+              <strong>Shot 7:</strong>
+              <p>Mira re-wraps the heart token with exaggerated stop-motion urgency—fast hands, big concerned eyes, careful folds—then presses the cloth tight to make sure it won't betray them again. Tom watches closely, then nods with quiet approval, staying near as if ready to shield it from the next gust.</p>
+              
+              <strong>Shot 8:</strong>
+              <p>In the community hall in the afternoon, warm lamps glow over a small display stand. Mira sets the HEART TOKEN onto the stand with slow precision, making sure it sits centered. Tom adjusts the stand's legs until it stops wobbling. They lean back together, satisfied, then unconsciously mirror each other's proud posture, sharing a silent "we did it" moment.</p>
+            </div>
+          </div>
         </div>
       </div>
+      
+      <script>
+        function toggleScript(caseNum) {
+          const scriptPanel = document.getElementById('script-' + caseNum);
+          scriptPanel.classList.toggle('show');
+        }
+      </script>
     </div>
   </section>
 
-  <section class="section" id="BibTeX"> -->
+  <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@article{zhou2025videomemory,
